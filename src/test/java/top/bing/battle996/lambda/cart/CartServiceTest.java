@@ -23,4 +23,22 @@ class CartServiceTest {
 
         System.out.println(JSON.toJSONString(result, true));
     }
+
+    @Test
+    void filterSkusByCategory() {
+        List<Sku> cartSkuList = CartService.getCartSkuList();
+
+        // 查找购物车中图书类商品集合
+        List<Sku> result = CartService.filterSkusByCategory(cartSkuList, SkuCategoryEnum.BOOKS);
+
+        System.out.println(JSON.toJSONString(result, true));
+    }
+
+    @Test
+    void filterSkus() {
+    }
+
+    @Test
+    void filterSkus1() {
+    }
 }
