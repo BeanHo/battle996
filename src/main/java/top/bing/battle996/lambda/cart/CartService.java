@@ -116,11 +116,11 @@ public class CartService {
             // 如果根据商品类型判断，sku类型与输入类型比较
             // 如果根据商品总价判断，sku总价与输入总价比较
             if (
-                    (categoryOrPrice
-                            && category.equals(sku.getSkuCategory())
+                    (categoryOrPrice && category.equals(sku.getSkuCategory())
                             ||
-                            (!categoryOrPrice
-                                    && sku.getTotalPrice() > totalPrice))) {
+                            (!categoryOrPrice && sku.getTotalPrice() > totalPrice)
+                    )
+                    ) {
                 result.add(sku);
             }
         }

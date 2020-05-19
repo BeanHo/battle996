@@ -16,26 +16,26 @@ class CartServiceTest {
 
     @Test
     void filterElectronicsSkus() {
-
         List<Sku> cartSkuList = CartService.getCartSkuList();
         // 查找购物车中数码类商品
         List<Sku> result = CartService.filterElectronicsSkus(cartSkuList);
-
         System.out.println(JSON.toJSONString(result, true));
     }
 
     @Test
     void filterSkusByCategory() {
         List<Sku> cartSkuList = CartService.getCartSkuList();
-
         // 查找购物车中图书类商品集合
         List<Sku> result = CartService.filterSkusByCategory(cartSkuList, SkuCategoryEnum.BOOKS);
-
         System.out.println(JSON.toJSONString(result, true));
     }
 
     @Test
     void filterSkus() {
+        List<Sku> cartSkuList = CartService.getCartSkuList();
+        // 根据商品总价过滤超过2000元的商品列表
+        List<Sku> result = CartService.filterSkus(cartSkuList, null, 2000.00, false);
+        System.out.println(JSON.toJSONString(result, true));
     }
 
     @Test
