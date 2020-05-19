@@ -40,14 +40,17 @@ class CartServiceTest {
 //        // 过滤商品总价大于2000的商品
 //        List<Sku> result = CartService.filterSkus(cartSkuList, new SkuTotalPricePredicate());
 
+//        // 过滤商品单价大于1000的商品
+//        List<Sku> result = CartService.filterSkus(
+//                cartSkuList, new SkuPredicate() {
+//                    @Override
+//                    public boolean test(Sku sku) {
+//                        return sku.getSkuPrice() > 1000;
+//                    }
+//                });
+
         // 过滤商品单价大于1000的商品
-        List<Sku> result = CartService.filterSkus(
-                cartSkuList, new SkuPredicate() {
-                    @Override
-                    public boolean test(Sku sku) {
-                        return sku.getSkuPrice() > 1000;
-                    }
-                });
+        List<Sku> result = CartService.filterSkus(cartSkuList, (Sku sku) -> sku.getSkuPrice() > 1000);
 
         System.out.println(JSON.toJSONString(result, true));
 
