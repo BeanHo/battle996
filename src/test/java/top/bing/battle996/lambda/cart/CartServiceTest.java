@@ -32,15 +32,25 @@ class CartServiceTest {
 
     @Test
     void filterSkus() {
-//        List<Sku> cartSkuList = CartService.getCartSkuList();
+        List<Sku> cartSkuList = CartService.getCartSkuList();
+
 //        // 根据商品总价过滤超过2000元的商品列表
 //        List<Sku> result = CartService.filterSkus(cartSkuList, null, 2000.00, false);
-//        System.out.println(JSON.toJSONString(result, true));
 
-        List<Sku> cartSkuList = CartService.getCartSkuList();
-        // 过滤商品总价大于2000的商品
-        List<Sku> result = CartService.filterSkus(cartSkuList, new SkuTotalPricePredicate());
+//        // 过滤商品总价大于2000的商品
+//        List<Sku> result = CartService.filterSkus(cartSkuList, new SkuTotalPricePredicate());
+
+        // 过滤商品单价大于1000的商品
+        List<Sku> result = CartService.filterSkus(
+                cartSkuList, new SkuPredicate() {
+                    @Override
+                    public boolean test(Sku sku) {
+                        return sku.getSkuPrice() > 1000;
+                    }
+                });
+
         System.out.println(JSON.toJSONString(result, true));
+
     }
 
     @Test
