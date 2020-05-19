@@ -32,13 +32,19 @@ class CartServiceTest {
 
     @Test
     void filterSkus() {
+//        List<Sku> cartSkuList = CartService.getCartSkuList();
+//        // 根据商品总价过滤超过2000元的商品列表
+//        List<Sku> result = CartService.filterSkus(cartSkuList, null, 2000.00, false);
+//        System.out.println(JSON.toJSONString(result, true));
+
         List<Sku> cartSkuList = CartService.getCartSkuList();
-        // 根据商品总价过滤超过2000元的商品列表
-        List<Sku> result = CartService.filterSkus(cartSkuList, null, 2000.00, false);
+        // 过滤商品总价大于2000的商品
+        List<Sku> result = CartService.filterSkus(cartSkuList, new SkuTotalPricePredicate());
         System.out.println(JSON.toJSONString(result, true));
     }
 
     @Test
     void filterSkus1() {
+
     }
 }
