@@ -1,11 +1,12 @@
-package top.bing.battle996.lambda.cart;
+package top.bing.battle996.lambda;
 
 import com.alibaba.fastjson.JSON;
 import org.junit.jupiter.api.Test;
+import top.bing.battle996.lambda.cart.CartService;
+import top.bing.battle996.lambda.cart.Sku;
+import top.bing.battle996.lambda.cart.SkuCategoryEnum;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @Auther: beanho
